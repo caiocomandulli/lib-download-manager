@@ -15,7 +15,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.beenoculus.platform.video.lib.download.DownloadManager.DownloadType;
+import com.comandulli.lib.download.DownloadManager.DownloadType;
 
 /**
  * The type Download task.

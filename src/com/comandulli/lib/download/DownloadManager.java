@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 
-import com.beenoculus.platform.video.lib.download.DownloadService.DownloadBinder;
+import com.comandulli.lib.download.DownloadService.DownloadBinder;
 
 /**
  * The type Download manager.

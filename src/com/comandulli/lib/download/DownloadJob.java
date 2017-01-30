@@ -10,7 +10,7 @@ import java.util.HashMap;
  */
 public class DownloadJob {
 
-	private final String name;
+    private final String name;
     /**
      * The Path.
      */
@@ -49,8 +49,16 @@ public class DownloadJob {
      * The Speed.
      */
     protected float speed;
+    /**
+     * The total length in bytes.
+     */
+    protected int length;
+    /**
+     * The total bytes downloaded.
+     */
+    protected int downloaded;
 	
-	private final Context context;
+    private final Context context;
 
     /**
      * Instantiates a new Download job.
@@ -141,6 +149,24 @@ public class DownloadJob {
 		return speed;
 	}
 
+    /**
+     * Gets length.
+     *
+     * @return the length
+     */
+    public int getLength() {
+		return length;
+	}
+    
+    /**
+     * Gets downloaded.
+     *
+     * @return the downloaded
+     */
+    public int getDownloaded() {
+		return downloaded;
+	}
+	
     /**
      * Gets name.
      *

@@ -204,7 +204,8 @@ public class DownloadJob {
 		if (task.getStatus() != Status.RUNNING) {
 			task.execute("");
 		}
-        for (JobListener jobListener : listeners.values()) {
+        Collection<JobListener> collection = listeners.values();
+        for (JobListener jobListener : collection) {
 			jobListener.onExecute(isCancelled);
 		}
 		hasError = false;
@@ -255,7 +256,8 @@ public class DownloadJob {
      * @param listener the listener
      */
     public void removeListener(JobListener listener) {
-        for ( Map.Entry<String, JobListener> entry : listeners.entrySet()) {
+        Set<Entry<String, JobListener>> entrySet = listeners.entrySet();
+    	for ( Entry<String, JobListener> entry : entrySet) {
     	    String key = entry.getKey();
     	    JobListener value = entry.getValue();
     	    if(value == listener){

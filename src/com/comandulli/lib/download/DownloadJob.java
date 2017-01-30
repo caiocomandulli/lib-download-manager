@@ -229,7 +229,13 @@ public class DownloadJob {
      * @param listener the listener
      */
     public void removeListener(JobListener listener) {
-        listeners.remove(listener);
-	}
+        for ( Map.Entry<String, JobListener> entry : listeners.entrySet()) {
+    	    String key = entry.getKey();
+    	    JobListener value = entry.getValue();
+    	    if(value == listener){
+    	    	listeners.remove(key);
+    	    }
+    	}
+    }
 	
 }

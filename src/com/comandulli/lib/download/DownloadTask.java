@@ -174,6 +174,8 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
 				}
 				// publish progress
 				publishProgress((int) (total * 100 / lengthOfFile), (int) total, lengthOfFile);
+				job.downloaded = (int) total;
+				job.length = lengthOfFile;
 				output.write(data, 0, count);
 			}
 			output.flush();

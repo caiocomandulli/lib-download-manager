@@ -53,7 +53,8 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
 		job.isCancelled = true;
 		job.isRunning = false;
 		job.progress = INDETERMINATE_PROGRESS;
-		for (JobListener jobListener : job.listeners.values()) {
+		Collection<JobListener> collection = job.listeners.values();
+	        for (JobListener jobListener : collection) {
 			jobListener.onCancelled(job.hasError);
 		}
 	}
@@ -116,7 +117,8 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
 			long total = 0;
 
 			if (!isCancelled()) {
-				for (JobListener jobListener : job.listeners.values()) {
+				Collection<JobListener> collection = job.listeners.values();
+	        		for (JobListener jobListener : collection) {
 					jobListener.onStart(lengthOfFile);
 				}
 				job.isRunning = true;
@@ -202,7 +204,8 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
     @Override
     protected void onProgressUpdate(Integer... values) {
 		job.progress = values[0];
-		for (JobListener jobListener : job.listeners.values()) {
+		Collection<JobListener> collection = job.listeners.values();
+	        for (JobListener jobListener : collection) {
 			jobListener.onProgress(values[0], values[1], values[2], job.speed);
 		}
 	}
@@ -215,7 +218,8 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
     @Override
 	protected void onPostExecute(String result) {
 		if (!job.isCancelled && !job.hasError) {
-			for (JobListener jobListener : job.listeners.values()) {
+			Collection<JobListener> collection = job.listeners.values();
+	        	for (JobListener jobListener : collection) {
 				jobListener.onFinish();
 			}
 		}
